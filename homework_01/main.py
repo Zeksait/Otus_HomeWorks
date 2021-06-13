@@ -4,19 +4,16 @@
 """
 
 
-# def power_numbers():
-#     """
-#     функция, которая принимает N целых чисел,
-#     и возвращает список квадратов этих чисел
-#     """
+def power_numbers(*args):
+    return [i**i for i in args]
 
 
-def power_numbers(*numbers):
-    """
+"""
     функция, которая принимает N целых чисел,
     и возвращает список квадратов этих чисел
-    """
-    return [number * number for number in numbers]
+    >>> power_numbers(1, 2, 5, 7)
+    <<< [1, 4, 25, 49]
+"""
 
 
 # filter types
@@ -25,46 +22,24 @@ EVEN = "even"
 PRIME = "prime"
 
 
-# def filter_numbers():
-#     """
-#     функция, которая на вход принимает список из целых чисел,
-#     и возвращает только чётные/нечётные/простые числа
-#     (выбор производится передачей дополнительного аргумента)
-#     """
+def filter_numbers(*nums, filt):
+    if filt == 'odd':  # Нечетные числа
+        return [num for num in nums if num % 2 == 1]
+    elif filt == 'even':  # Четные числа
+        return [num for num in nums if num % 2 == 0]
+    elif filt == 'prime':  # Простые числа
+        pass
+    else:  # Другое значение
+        return []
 
 
-def is_prime(n) -> bool:
-    # Corner cases
-    if n <= 1:
-        return False
-    if n <= 3:
-        return True
-
-    # This is checked so that we can skip
-    # middle five numbers in below loop
-    if n % 2 == 0 or n % 3 == 0:
-        return False
-
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i = i + 6
-
-    return True
-
-
-FILTERS_MAP = {
-    ODD: lambda n: n % 2 != 0,
-    EVEN: lambda n: n % 2 == 0,
-    PRIME: is_prime,
-}
-
-
-def filter_numbers(numbers, filter_type):
-    """
+"""
     функция, которая на вход принимает список из целых чисел,
     и возвращает только чётные/нечётные/простые числа
     (выбор производится передачей дополнительного аргумента)
-    """
-    return list(filter(FILTERS_MAP[filter_type], numbers))
+
+    >>> filter_numbers([1, 2, 3], ODD)
+    <<< [1, 3]
+    >>> filter_numbers([2, 3, 4, 5], EVEN)
+    <<< [2, 4]
+"""
