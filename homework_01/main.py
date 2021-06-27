@@ -28,7 +28,15 @@ def filter_numbers(*nums, filt):
     elif filt == 'even':  # Четные числа
         return [num for num in nums if num % 2 == 0]
     elif filt == 'prime':  # Простые числа
-        pass
+        nums2 = []
+        for num in nums:
+            for i in range(2, num):
+                if num % i == 0:
+                    break
+                else:
+                    nums2.append(num)
+                    break
+        return nums2
     else:  # Другое значение
         return []
 
