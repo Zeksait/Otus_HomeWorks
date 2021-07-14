@@ -10,7 +10,7 @@ PRIME = "prime"
 
 
 def power_numbers(*args):
-    return [i**i for i in args]
+    return [i**2 for i in args]
 
 
 def is_prime(num):
