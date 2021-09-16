@@ -17,15 +17,15 @@ app = Flask(__name__)
 
 @app.route('/', endpoint='home')
 def hello_world():
-    return render_template('index.html', body='Hello World!')
+    return render_template('index/index.html', body='Hello World!',)
 
 
 @app.route('/about/', endpoint='about')
 def about():
-    return render_template('index.html',  body='Дядя Семён ехал из города домой. '
+    return render_template('about/index.html', body='Дядя Семён ехал из города домой. '
                                                                  'С ним была собака Жучка, ' \
            'Вдруг из леса выскочили волки. Жучка испугалась и прыгнула в сани. ' \
            'У дяди Семёна была хорошая лошадь. Она тоже испугалась и быстро помчалась по дороге. ' \
            'Деревня была близко. Показались огни в окнах. Волки отстали.' \
-           'Умная лошадь спасла дядю Семена и Жучку.')
+           'Умная лошадь спасла дядю Семена и Жучку.',)
 
